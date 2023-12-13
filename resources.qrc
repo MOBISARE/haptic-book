@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/images/page1.png</file>
+        <file>resources/images/page2.png</file>
+        <file>resources/images/page3.png</file>
+        <file>resources/images/page4.png</file>
+        <file>resources/images/page5.png</file>
+        <file>resources/images/page6.png</file>
+        <file>resources/sounds/fire2.mp3</file>
+    </qresource>
+</RCC>
