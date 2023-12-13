@@ -30,12 +30,11 @@ const string Asset::PAGE_6_STORY = "Page 6";
 
 
 // Audios
-const string Asset::FIRE  = ":/resources/sounds/fire2.mp3";
+const string Asset::FIRE  = "qrc:/resources/sounds/fire2.mp3";
 
 // Affichage
-// Calculé avec un rapport 16:9
-const int Asset::WIDTH = 800;
-const int Asset::HEIGHT = Asset::WIDTH / 16 * 9;
+const int Asset::WIDTH = 1024;
+const int Asset::HEIGHT =  768;
 
 Asset::Asset()
 {

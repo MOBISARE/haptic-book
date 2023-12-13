@@ -5,6 +5,8 @@
 #include <QMouseEvent>
 #include <QLabel>
 #include "displaymanager.h"
+#include "soundmanager.h"
+#include "hapticmanager.h"
 
 // Affichage principale.
 // Contient la logique de traitement technique avec Qt.
@@ -15,6 +17,9 @@ class MainWindow : public QMainWindow
 private:
     // Gestionnaire d'affichage.
     DisplayManager* display;
+
+    // Gestionnaire haptique.
+    HapticManager* haptic;
 
     // Composant graphique de l'image de fond.
     QLabel* backgroundLabel;

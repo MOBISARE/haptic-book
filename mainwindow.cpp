@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent)
     this->maskLabel = new QLabel("Mask", this);
     this->heroLabel = new QLabel("Hero", this);
     this->display = new DisplayManager();
+    this->haptic = new HapticManager(this);
 
     this->configure();
     this->loadLevel();
@@ -35,6 +36,7 @@ MainWindow::~MainWindow()
     delete this->maskLabel;
     delete this->heroLabel;
     delete this->display;
+    delete this->haptic;
 }
 
 void MainWindow::configure()
@@ -56,10 +58,11 @@ void MainWindow::loadLevel()
         this->display->getCurrentBackgroundImageHeight()
     );
     this->backgroundLabel->setScaledContents(true);
+    this->backgroundLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
 
     // Texte narratif.
     qDebug() << "Chargement de l'histoire ... ";
-    QFont storyFont = QFont("Hevelcita", 12);
+    QFont storyFont = QFont("Helvetica", 12);
 
     this->storyLabel->setText(this->display->getStory()->c_str());
     this->storyLabel->setFont(storyFont);
@@ -97,6 +100,8 @@ void MainWindow::loadLevel()
     this->heroLabel->setGeometry(heroRect);
     this->heroLabel->setScaledContents(true);
 
+    qDebug() << "Chargement des audios...";
+    SoundManager::getInstance()->playSound("fire", true);
 }
 
 
@@ -129,7 +134,8 @@ void MainWindow::mouseMoveEvent(QMouseEvent* event)
     // Permettre le changement de niveau
     // si le protagoniste touche le masque.
     if(this->maskLabel->geometry().intersects(this->heroLabel->geometry())){
-        qDebug() << "Insection avec le masque";
+        qDebug() << "Intersection avec le masque";
+        SoundManager::getInstance()->stopAllSounds();
         this->display->nextPage();
         this->loadLevel();
     }
@@ -138,10 +144,10 @@ void MainWindow::mouseMoveEvent(QMouseEvent* event)
 
 void MainWindow::mousePressEvent(QMouseEvent* event)
 {
-    // RAS
+    this->haptic->launchEffect(SAND);
 }
 
 void MainWindow::mouseReleaseEvent(QMouseEvent* event)
 {
-    // RAS
+    this->haptic->stopEffect(SAND);
 }

@@ -7,5 +7,13 @@
         <file>resources/images/page5.png</file>
         <file>resources/images/page6.png</file>
         <file>resources/sounds/fire2.mp3</file>
+        <file>resources/images/hero_big.png</file>
+        <file>resources/images/hero_little.png</file>
+        <file>resources/images/mask_black.png</file>
+        <file>resources/images/mask_blue.png</file>
+        <file>resources/images/mask_brown.png</file>
+        <file>resources/images/mask_green.png</file>
+        <file>resources/images/mask_red.png</file>
+        <file>resources/images/mask_white.png</file>
     </qresource>
 </RCC>
